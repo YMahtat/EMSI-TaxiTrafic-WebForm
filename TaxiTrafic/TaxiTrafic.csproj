@@ -1,0 +1,625 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{606DC758-4974-4EAE-B531-9CD30223C86F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaxiTrafic</RootNamespace>
+    <AssemblyName>TaxiTrafic</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="AddClient.aspx" />
+    <Content Include="AddCourse.aspx" />
+    <Content Include="AddTaxi.aspx" />
+    <Content Include="AddUser.aspx" />
+    <Content Include="ArchiveCourses.aspx" />
+    <Content Include="ArchivePeriodicCourses.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="css\chosen.css" />
+    <Content Include="HomeAdmin.aspx" />
+    <Content Include="HomeTaxiDriver.aspx" />
+    <Content Include="InitAdminUser.aspx" />
+    <Content Include="js\chosen.jquery.js" />
+    <Content Include="js\chosen.proto.js" />
+    <Content Include="logout.aspx" />
+    <Content Include="ManageClients.aspx" />
+    <Content Include="ManageCourses.aspx" />
+    <Content Include="ManagePeriodicCourses.aspx" />
+    <Content Include="ManageTodayCourses.aspx" />
+    <Content Include="ManageUsers.aspx" />
+    <Content Include="ManageTaxis.aspx" />
+    <Content Include="Master.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
+    <Content Include="AdministratorMaster.master" />
+    <Content Include="HomeSimpleMaster.master" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="TaxiTraficDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TaxiTraficDB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EntityDeploy>
+    <Content Include="MyArchivedCourses.aspx" />
+    <Content Include="MyCoursesAffectations.aspx" />
+    <Content Include="TaxiTraficDB.edmx.diagram">
+      <DependentUpon>TaxiTraficDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SimpleMaster.master" />
+    <Content Include="TaxiDriverMaster.master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\icomoon.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\theme-color.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\icomoon.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\about-img1.png" />
+    <Content Include="images\Admin.png" />
+    <Content Include="images\advertising-after-img.png" />
+    <Content Include="images\advertising-before-img.png" />
+    <Content Include="images\advertising-sm-thumb-01.png" />
+    <Content Include="images\advertising-sm-thumb-02.png" />
+    <Content Include="images\advertising-sm-thumb-03.png" />
+    <Content Include="images\animate-bus.png" />
+    <Content Include="images\animate-bus2.png" />
+    <Content Include="images\app-img.png" />
+    <Content Include="images\author-sm-img-01.jpg" />
+    <Content Include="images\awwards-bg-img.jpg" />
+    <Content Include="images\banner\200w_d.gif" />
+    <Content Include="images\banner\banner-before-img.png" />
+    <Content Include="images\banner\banner-before-img2.png" />
+    <Content Include="images\banner\banner-img-01.jpg" />
+    <Content Include="images\banner\banner-img-02.jpg" />
+    <Content Include="images\banner\banner-img-03.jpg" />
+    <Content Include="images\banner\getnowtaxi-banner.jpg" />
+    <Content Include="images\banner\giphy.mp4" />
+    <Content Include="images\banner\inner-banner-img-01.jpg" />
+    <Content Include="images\banner\inner-banner-img-02.jpg" />
+    <Content Include="images\banner\inner-banner-img-03.jpg" />
+    <Content Include="images\banner\inner-banner-img-04.jpg" />
+    <Content Include="images\banner\inner-banner-img-05.jpg" />
+    <Content Include="images\banner\inner-banner-img-06.jpg" />
+    <Content Include="images\banner\inner-banner-img-07.jpg" />
+    <Content Include="images\banner\inner-banner-img-08.jpg" />
+    <Content Include="images\banner\inner-banner-img-09.jpg" />
+    <Content Include="images\banner\inner-banner-img-10.jpg" />
+    <Content Include="images\banner\inner-banner-img-11.jpg" />
+    <Content Include="images\blog-thumb-01.jpg" />
+    <Content Include="images\blog-thumb-02.jpg" />
+    <Content Include="images\blog-thumb-03.jpg" />
+    <Content Include="images\car-sm-01.jpg" />
+    <Content Include="images\comments-img-01.png" />
+    <Content Include="images\company-logo1.jpg" />
+    <Content Include="images\company-logo2.jpg" />
+    <Content Include="images\company-logo3.jpg" />
+    <Content Include="images\company-logo4.jpg" />
+    <Content Include="images\cp-logo.png" />
+    <Content Include="images\cp-logo2.png" />
+    <Content Include="images\deals-thumb-img-01.jpg" />
+    <Content Include="images\deals-thumb-img-02.jpg" />
+    <Content Include="images\deals-thumb-img-03.jpg" />
+    <Content Include="images\deals-thumb-img-04.jpg" />
+    <Content Include="images\dot-img.jpg" />
+    <Content Include="images\driver-img-01.jpg" />
+    <Content Include="images\driver-img-02.jpg" />
+    <Content Include="images\driver-img-03.jpg" />
+    <Content Include="images\driver-img-04.jpg" />
+    <Content Include="images\find_user.png" />
+    <Content Include="images\flickr-img-01.jpg" />
+    <Content Include="images\flickr-img-02.jpg" />
+    <Content Include="images\flickr-img-03.jpg" />
+    <Content Include="images\flickr-img-04.jpg" />
+    <Content Include="images\flickr-img-05.jpg" />
+    <Content Include="images\flickr-img-06.jpg" />
+    <Content Include="images\flickr-img-07.jpg" />
+    <Content Include="images\flickr-img-08.jpg" />
+    <Content Include="images\footer-bottom-img.jpg" />
+    <Content Include="images\footer-md-img.jpg" />
+    <Content Include="images\g-play-img.png" />
+    <Content Include="images\gallery-col-1-img-01.jpg" />
+    <Content Include="images\gallery-col-1-img-02.jpg" />
+    <Content Include="images\gallery-col-1-img-03.jpg" />
+    <Content Include="images\gallery-col-1-img-04.jpg" />
+    <Content Include="images\gallery-col-2-img-01.jpg" />
+    <Content Include="images\gallery-col-2-img-02.jpg" />
+    <Content Include="images\gallery-col-2-img-03.jpg" />
+    <Content Include="images\gallery-col-2-img-04.jpg" />
+    <Content Include="images\gallery-col-2-img-05.jpg" />
+    <Content Include="images\gallery-col-2-img-06.jpg" />
+    <Content Include="images\gallery-col-2-img-07.jpg" />
+    <Content Include="images\gallery-col-2-img-08.jpg" />
+    <Content Include="images\gallery-col-3-img-01.jpg" />
+    <Content Include="images\gallery-col-3-img-02.jpg" />
+    <Content Include="images\gallery-col-3-img-03.jpg" />
+    <Content Include="images\gallery-col-3-img-04.jpg" />
+    <Content Include="images\gallery-col-3-img-05.jpg" />
+    <Content Include="images\gallery-col-3-img-06.jpg" />
+    <Content Include="images\gallery-col-3-img-07.jpg" />
+    <Content Include="images\gallery-col-3-img-08.jpg" />
+    <Content Include="images\gallery-col-3-img-09.jpg" />
+    <Content Include="images\gallery-col-3-img-10.jpg" />
+    <Content Include="images\gallery-col-3-img-11.jpg" />
+    <Content Include="images\gallery-col-3-img-12.jpg" />
+    <Content Include="images\gallery-col-4-img-01.jpg" />
+    <Content Include="images\gallery-col-4-img-02.jpg" />
+    <Content Include="images\gallery-col-4-img-03.jpg" />
+    <Content Include="images\gallery-col-4-img-04.jpg" />
+    <Content Include="images\gallery-col-4-img-05.jpg" />
+    <Content Include="images\gallery-col-4-img-06.jpg" />
+    <Content Include="images\gallery-col-4-img-07.jpg" />
+    <Content Include="images\gallery-col-4-img-08.jpg" />
+    <Content Include="images\gallery-col-4-img-09.jpg" />
+    <Content Include="images\gallery-col-4-img-10.jpg" />
+    <Content Include="images\gallery-col-4-img-11.jpg" />
+    <Content Include="images\gallery-col-4-img-12.jpg" />
+    <Content Include="images\gallery-col-4-img-13.jpg" />
+    <Content Include="images\gallery-col-4-img-14.jpg" />
+    <Content Include="images\gallery-col-4-img-15.jpg" />
+    <Content Include="images\gallery-col-4-img-16.jpg" />
+    <Content Include="images\Google-Maps.jpg" />
+    <Content Include="images\heading-after-img.png" />
+    <Content Include="images\heading-before-img.png" />
+    <Content Include="images\icons8_Administrative_Tools_96px.png" />
+    <Content Include="images\icons8_Taxi_96px.png" />
+    <Content Include="images\if_Taxi_2667277.ico" />
+    <Content Include="images\mobile-img-01.png" />
+    <Content Include="images\mobile-img-02.png" />
+    <Content Include="images\mobile-md-img.png" />
+    <Content Include="images\offers-bg-img.jpg" />
+    <Content Include="images\popular-sm-01.jpg" />
+    <Content Include="images\popular-sm-02.jpg" />
+    <Content Include="images\popular-sm-03.jpg" />
+    <Content Include="images\popular-sm-04.jpg" />
+    <Content Include="images\select-img.png" />
+    <Content Include="images\TAXI ICON.png" />
+    <Content Include="images\taxi-dribble.gif" />
+    <Content Include="images\taxi-drive-animation.gif" />
+    <Content Include="images\Taxi-Driver.png" />
+    <Content Include="images\taxi-icon.png" />
+    <Content Include="images\taxi-img-01.jpg" />
+    <Content Include="images\taxi-img-02.jpg" />
+    <Content Include="images\taxi-img-03.jpg" />
+    <Content Include="images\test-sm-thumb.jpg" />
+    <Content Include="images\testimonial-bg-img.jpg" />
+    <Content Include="images\testimonial-thumb-01.jpg" />
+    <Content Include="images\testimonial-thumb-02.jpg" />
+    <Content Include="images\testimonial-thumb-03.jpg" />
+    <Content Include="images\testimonial-thumb-04.jpg" />
+    <Content Include="images\testimonial-thumb-05.jpg" />
+    <Content Include="images\testimonial-thumb-06.jpg" />
+    <Content Include="images\testimonial-thumb-07.jpg" />
+    <Content Include="images\testimonial-thumb-08.jpg" />
+    <Content Include="images\testimonial-thumb-09.jpg" />
+    <Content Include="images\why-choose-img-01.png" />
+    <Content Include="images\why-choose-img-02.png" />
+    <Content Include="images\why-choose-img-03.png" />
+    <Content Include="images\why-choose-taxi-bg-img.jpg" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom-script.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery-1.11.3.min.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\map.js" />
+    <Content Include="js\migrate.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="TaxiTraficDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TaxiTraficDB.Context.cs</LastGenOutput>
+      <DependentUpon>TaxiTraficDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TaxiTraficDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TaxiTraficDB.edmx</DependentUpon>
+      <LastGenOutput>TaxiTraficDB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAffectation.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="InitPasswords.aspx" />
+    <Content Include="InitAffectation.aspx" />
+    <Content Include="ZoneClient.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddClient.aspx.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddClient.aspx.designer.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddTaxi.aspx.cs">
+      <DependentUpon>AddTaxi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTaxi.aspx.designer.cs">
+      <DependentUpon>AddTaxi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AffectedDay.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArchiveCourses.aspx.cs">
+      <DependentUpon>ArchiveCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArchiveCourses.aspx.designer.cs">
+      <DependentUpon>ArchiveCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArchivePeriodicCourses.aspx.cs">
+      <DependentUpon>ArchivePeriodicCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArchivePeriodicCourses.aspx.designer.cs">
+      <DependentUpon>ArchivePeriodicCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeAdmin.aspx.cs">
+      <DependentUpon>HomeAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeAdmin.aspx.designer.cs">
+      <DependentUpon>HomeAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeSimpleMaster.master.cs">
+      <DependentUpon>HomeSimpleMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeSimpleMaster.master.designer.cs">
+      <DependentUpon>HomeSimpleMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="HomeTaxiDriver.aspx.cs">
+      <DependentUpon>HomeTaxiDriver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeTaxiDriver.aspx.designer.cs">
+      <DependentUpon>HomeTaxiDriver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InitAdminUser.aspx.cs">
+      <DependentUpon>InitAdminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitAdminUser.aspx.designer.cs">
+      <DependentUpon>InitAdminUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageClients.aspx.cs">
+      <DependentUpon>ManageClients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageClients.aspx.designer.cs">
+      <DependentUpon>ManageClients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministratorMaster.master.cs">
+      <DependentUpon>AdministratorMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministratorMaster.master.designer.cs">
+      <DependentUpon>AdministratorMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Cours.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageCourses.aspx.cs">
+      <DependentUpon>ManageCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageCourses.aspx.designer.cs">
+      <DependentUpon>ManageCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePeriodicCourses.aspx.cs">
+      <DependentUpon>ManagePeriodicCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagePeriodicCourses.aspx.designer.cs">
+      <DependentUpon>ManagePeriodicCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTodayCourses.aspx.cs">
+      <DependentUpon>ManageTodayCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageTodayCourses.aspx.designer.cs">
+      <DependentUpon>ManageTodayCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTaxis.aspx.cs">
+      <DependentUpon>ManageTaxis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageTaxis.aspx.designer.cs">
+      <DependentUpon>ManageTaxis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MyArchivedCourses.aspx.cs">
+      <DependentUpon>MyArchivedCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyArchivedCourses.aspx.designer.cs">
+      <DependentUpon>MyArchivedCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyCoursesAffectations.aspx.cs">
+      <DependentUpon>MyCoursesAffectations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyCoursesAffectations.aspx.designer.cs">
+      <DependentUpon>MyCoursesAffectations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Periodic_Courses.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleMaster.master.cs">
+      <DependentUpon>SimpleMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SimpleMaster.master.designer.cs">
+      <DependentUpon>SimpleMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Taxi.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="TaxiDriverMaster.master.cs">
+      <DependentUpon>TaxiDriverMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaxiDriverMaster.master.designer.cs">
+      <DependentUpon>TaxiDriverMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="TaxiTraficAffectation.cs" />
+    <Compile Include="TaxiTraficDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaxiTraficDB.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="TaxiTraficDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="TaxiTraficDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaxiTraficDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="TaxiTraficSecurity.cs" />
+    <Compile Include="TaxiTraficUtilities.cs" />
+    <Compile Include="TestAffectation.aspx.cs">
+      <DependentUpon>TestAffectation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestAffectation.aspx.designer.cs">
+      <DependentUpon>TestAffectation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>TaxiTraficDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="InitPasswords.aspx.cs">
+      <DependentUpon>InitPasswords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitPasswords.aspx.designer.cs">
+      <DependentUpon>InitPasswords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InitAffectation.aspx.cs">
+      <DependentUpon>InitAffectation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitAffectation.aspx.designer.cs">
+      <DependentUpon>InitAffectation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZoneClient.aspx.cs">
+      <DependentUpon>ZoneClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZoneClient.aspx.designer.cs">
+      <DependentUpon>ZoneClient.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3370</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3370/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

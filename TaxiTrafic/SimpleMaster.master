@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="SimpleMaster.master.cs" Inherits="TaxiTrafic.SimpleMaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="SIDE_NAV" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BUTTON_SIDE_MENU" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ROOF_NAV" runat="server">
+    <li><a href="Login.aspx">Log In</a></li>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="TOP_NAV" runat="server">
+    <li><a href="Default.aspx">ACCEUIL</a></li>
+    <li><a href="About.aspx">À PROPOS</a></li>
+    <li><a href="ZoneClient.aspx">ZONE-CLIENT</a></li>
+    <li><a href="Contact.aspx">CONTACT</a>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="BANNER" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="BANNER">
+         <div class="cp_inner-banner">
+            <asp:ContentPlaceHolder runat="server" ID="BANNER_IMG">
+                <img width="1800" height="492" src="images/banner/inner-banner-img-04.jpg" alt="">
+            </asp:ContentPlaceHolder>
+            <!--Inner Banner Holder Start-->
+            <div class="cp-inner-banner-holder">
+                <div class="container">
+                <h2>
+                    <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT_TITLE"></asp:ContentPlaceHolder>
+                </h2>
+                    <!--Breadcrumb Start-->
+                    <ul class="breadcrumb">
+                        <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT_CONTEXTE">
+                        </asp:ContentPlaceHolder>
+                    </ul><!--Breadcrumb End-->
+                </div>
+              
+            </div><!--Inner Banner Holder End-->
+            <div class="animate-bus">
+                <img src="images/animate-bus2.png" alt="">
+            </div>
+        </div>
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="MAIN_CONTENT" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content9" ContentPlaceHolderID="TOP_FOOTER" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="TOP_FOOTER"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content10" ContentPlaceHolderID="BOX_BOTTOM_FOOTER" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content12" ContentPlaceHolderID="AddScript" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="AddScript"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content13" ContentPlaceHolderID="ScriptInstruct" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="ScriptInstruct"></asp:ContentPlaceHolder>
+</asp:Content>

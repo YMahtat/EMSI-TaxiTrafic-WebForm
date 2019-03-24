@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="HomeSimpleMaster.master.cs" Inherits="TaxiTrafic.HomeSimpleMaster" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="SIDE_NAV" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BUTTON_SIDE_MENU" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ROOF_NAV" runat="server">
+    <li><a href="Login.aspx">Log In</a></li>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="TOP_NAV" runat="server">
+    <li><a href="Default.aspx">ACCEUIL</a></li>
+    <li><a href="About.aspx">À PROPOS</a></li>
+    <li><a href="ZoneClient.aspx">ZONE-CLIENT</a></li>
+    <li><a href="Contact.aspx">CONTACT</a>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="BANNER" runat="server">
+    <!--Banner Start-->
+    <div s class="cp_banner">
+        <!--Banner Slider Start-->
+            <div  class="owl-carousel" id="cp_banner-slider">
+                <!--Banner Item Holder Start-->
+                <div class="item">
+                    <img src="images/banner/banner-img-01.jpg" alt="">
+                    <!--Banner Caption Start-->
+                    <div class="cp-banner-caption">
+                        <div class="container">
+                            <div class="banner-inner-holder">
+                                <strong class="banner-title">Réservez votre TAXI 2.0</strong>
+                                <h2  style="color:antiquewhite">Plutôt confortable</h2>
+                                <a href="~/ZoneClient.aspx" class="cp-btn-style1">ZONE-CLIENT</a>
+                            </div>
+                        </div>
+                    </div><!--Banner Caption End-->
+                </div><!--Banner Item Holder End-->
+
+                    <!--Banner Item Holder Start-->
+                <div class="item">
+                    <img src="images/banner/banner-img-02.jpg" alt="">
+                    <!--Banner Caption Start-->
+                    <div class="cp-banner-caption">
+                        <div class="container">
+                            <div class="banner-inner-holder">
+                                <strong class="banner-title">GAGNEZ VOTRE TEMPS</strong>
+                                <h2 style="color:antiquewhite">Gagnez du temps quand vous arrivez!</h2>
+                                <a href="~/ZoneClient.aspx" class="cp-btn-style1">ZONE-CLIENT</a>
+                            </div>
+                        </div>
+                    </div><!--Banner Caption End-->
+                </div><!--Banner Item Holder End-->
+
+                <!--Banner Item Holder Start-->
+                <div class="item">
+                    <img src="images/banner/banner-img-03.jpg" alt="">
+                    <!--Banner Caption Start-->
+                    <div class="cp-banner-caption">
+                        <div class="container">
+                            <div class="banner-inner-holder">
+                                <strong class="banner-title">RENTABILISEZ VOTRE TAXI</strong>
+                                <h2  style="color:antiquewhite">Révervez maintenant, et économisez sur vos courses Taxi</h2>
+                                <a href="~/ZoneClient.aspx" class="cp-btn-style1">ZONE-CLIENT</a>
+                            </div>
+                        </div>
+                    </div><!--Banner Caption End-->
+                </div><!--Banner Item Holder End-->
+
+            </div><!--Banner Slider End-->
+        
+    </div><!--Banner End-->
+    
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="MAIN_CONTENT" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content9" ContentPlaceHolderID="TOP_FOOTER" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="TOP_FOOTER"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content10" ContentPlaceHolderID="BOX_BOTTOM_FOOTER" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content12" ContentPlaceHolderID="AddScript" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="AddScript"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content13" ContentPlaceHolderID="ScriptInstruct" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="ScriptInstruct"></asp:ContentPlaceHolder>
+</asp:Content>

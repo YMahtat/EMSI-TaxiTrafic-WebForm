@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TaxiTraficModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AffectedDay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AFFECTED" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STARTING_DAY" Type="date" Nullable="false" />
+          <Property Name="STARTING_TIME" Type="time" Precision="7" Nullable="false" />
+          <Property Name="STARTING_ADDRESS" Type="text" Nullable="false" />
+          <Property Name="ARRIVAL_ADDRESS" Type="text" Nullable="false" />
+          <Property Name="ARRIVAL_TIME" Type="datetime" />
+          <Property Name="client_ID" Type="int" Nullable="false" />
+          <Property Name="taxi_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Periodic_Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAY" Type="int" Nullable="false" />
+          <Property Name="STARTING_TIME" Type="time" Precision="7" Nullable="false" />
+          <Property Name="STARTING_ADDRESS" Type="text" Nullable="false" />
+          <Property Name="ARRIVAL_ADDRESS" Type="text" Nullable="false" />
+          <Property Name="LIMIT_DATE" Type="date" />
+          <Property Name="client_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Taxis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MATRICULE" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="TYPE" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="driver_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="PROFIL" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Courses__client___47A6A41B">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Courses__taxi_ID__489AC854">
+          <End Role="Taxis" Type="Self.Taxis" Multiplicity="0..1" />
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taxis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="taxi_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Periodic___clien__44CA3770">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Periodic_Courses" Type="Self.Periodic_Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Periodic_Courses">
+              <PropertyRef Name="client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Taxis__driver_ID__41EDCAC5">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Taxis" Type="Self.Taxis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Taxis">
+              <PropertyRef Name="driver_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TaxiTraficModelStoreContainer">
+          <EntitySet Name="AffectedDay" EntityType="Self.AffectedDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodic_Courses" EntityType="Self.Periodic_Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Taxis" EntityType="Self.Taxis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Courses__client___47A6A41B" Association="Self.FK__Courses__client___47A6A41B">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Courses__taxi_ID__489AC854" Association="Self.FK__Courses__taxi_ID__489AC854">
+            <End Role="Taxis" EntitySet="Taxis" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Periodic___clien__44CA3770" Association="Self.FK__Periodic___clien__44CA3770">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Periodic_Courses" EntitySet="Periodic_Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Taxis__driver_ID__41EDCAC5" Association="Self.FK__Taxis__driver_ID__41EDCAC5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Taxis" EntitySet="Taxis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaxiTraficModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK__Courses__client___07C12930" FromRole="Clients" ToRole="Courses" />
+          <NavigationProperty Name="Periodic_Courses" Relationship="Self.FK__Periodic___clien__04E4BC85" FromRole="Clients" ToRole="Periodic_Courses" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STARTING_DAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="STARTING_TIME" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="STARTING_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARRIVAL_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARRIVAL_TIME" Type="DateTime" Precision="3" />
+          <Property Name="client_ID" Type="Int32" Nullable="false" />
+          <Property Name="taxi_ID" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Courses__client___07C12930" FromRole="Courses" ToRole="Clients" />
+          <NavigationProperty Name="Taxi" Relationship="Self.FK__Courses__taxi_ID__08B54D69" FromRole="Courses" ToRole="Taxis" />
+        </EntityType>
+        <EntityType Name="Periodic_Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAY" Type="Int32" Nullable="false" />
+          <Property Name="STARTING_TIME" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="STARTING_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARRIVAL_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIMIT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="client_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Periodic___clien__04E4BC85" FromRole="Periodic_Courses" ToRole="Clients" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Taxi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MATRICULE" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="driver_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK__Courses__taxi_ID__08B54D69" FromRole="Taxis" ToRole="Courses" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Taxis__driver_ID__02084FDA" FromRole="Taxis" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROFIL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Taxis" Relationship="Self.FK__Taxis__driver_ID__02084FDA" FromRole="Users" ToRole="Taxis" />
+        </EntityType>
+        <Association Name="FK__Courses__client___07C12930">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Periodic___clien__04E4BC85">
+          <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+          <End Role="Periodic_Courses" Type="Self.Periodic_Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Periodic_Courses">
+              <PropertyRef Name="client_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Courses__taxi_ID__08B54D69">
+          <End Role="Taxis" Type="Self.Taxi" Multiplicity="0..1" />
+          <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taxis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="taxi_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Taxis__driver_ID__02084FDA">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Taxis" Type="Self.Taxi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Taxis">
+              <PropertyRef Name="driver_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TaxiTraficEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
+          <EntitySet Name="Periodic_Courses" EntityType="Self.Periodic_Courses" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Taxis" EntityType="Self.Taxi" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Courses__client___07C12930" Association="Self.FK__Courses__client___07C12930">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Periodic___clien__04E4BC85" Association="Self.FK__Periodic___clien__04E4BC85">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Periodic_Courses" EntitySet="Periodic_Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Courses__taxi_ID__08B54D69" Association="Self.FK__Courses__taxi_ID__08B54D69">
+            <End Role="Taxis" EntitySet="Taxis" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Taxis__driver_ID__02084FDA" Association="Self.FK__Taxis__driver_ID__02084FDA">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Taxis" EntitySet="Taxis" />
+          </AssociationSet>
+          <EntitySet Name="AffectedDays" EntityType="TaxiTraficModel.AffectedDay" />
+        </EntityContainer>
+        <EntityType Name="AffectedDay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AFFECTED" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaxiTraficModelStoreContainer" CdmEntityContainer="TaxiTraficEntities">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="TaxiTraficModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="TaxiTraficModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STARTING_DAY" ColumnName="STARTING_DAY" />
+                <ScalarProperty Name="STARTING_TIME" ColumnName="STARTING_TIME" />
+                <ScalarProperty Name="STARTING_ADDRESS" ColumnName="STARTING_ADDRESS" />
+                <ScalarProperty Name="ARRIVAL_ADDRESS" ColumnName="ARRIVAL_ADDRESS" />
+                <ScalarProperty Name="ARRIVAL_TIME" ColumnName="ARRIVAL_TIME" />
+                <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+                <ScalarProperty Name="taxi_ID" ColumnName="taxi_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodic_Courses">
+            <EntityTypeMapping TypeName="TaxiTraficModel.Periodic_Courses">
+              <MappingFragment StoreEntitySet="Periodic_Courses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DAY" ColumnName="DAY" />
+                <ScalarProperty Name="STARTING_TIME" ColumnName="STARTING_TIME" />
+                <ScalarProperty Name="STARTING_ADDRESS" ColumnName="STARTING_ADDRESS" />
+                <ScalarProperty Name="ARRIVAL_ADDRESS" ColumnName="ARRIVAL_ADDRESS" />
+                <ScalarProperty Name="LIMIT_DATE" ColumnName="LIMIT_DATE" />
+                <ScalarProperty Name="client_ID" ColumnName="client_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TaxiTraficModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taxis">
+            <EntityTypeMapping TypeName="TaxiTraficModel.Taxi">
+              <MappingFragment StoreEntitySet="Taxis">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MATRICULE" ColumnName="MATRICULE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="driver_ID" ColumnName="driver_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TaxiTraficModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="PROFIL" ColumnName="PROFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffectedDays">
+            <EntityTypeMapping TypeName="TaxiTraficModel.AffectedDay">
+              <MappingFragment StoreEntitySet="AffectedDay">
+                <ScalarProperty Name="AFFECTED" ColumnName="AFFECTED" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

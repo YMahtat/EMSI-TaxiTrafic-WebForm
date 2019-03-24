@@ -1,0 +1,184 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdministratorMaster.master.cs" Inherits="TaxiTrafic.AdministratorMaster" %>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="AddHEAD" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="AddHEAD"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="BUTTON_SIDE_MENU" runat="server">
+    <ul class="nav-right-listed">
+        <li id="search-push"><i class="fa fa-search"></i></li>
+        <li id="push" class="cp-sidemenu"><a href="#"><i class="fa fa-align-justify"></i></a></li>
+    </ul>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="SIDE_NAV" runat="server">
+    <li class="dropdown">
+        <a style="margin-left: 0;padding-left: 0;" href="HomeAdmin.aspx">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            &nbsp;<b>HOME ADMIN</b>
+        </a>
+
+    </li>
+    <li  class="dropdown">
+        
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-map" aria-hidden="true"></i>
+            &nbsp;
+            <b>ADMINISTRATION COURSES</b>
+            <i class="fa fa-angle-down"></i>
+        </a>
+        
+        <ul  class="dropdown-menu" role="menu">
+            <li><a href="AddCourse.aspx"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;AJOUTER COURSE</a></li>
+            <li><a href="ManageCourses.aspx"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;GESTION COURSES</a></li>
+            <li><a href="ManagePeriodicCourses.aspx"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;GESTION COURSES PERIODIQUES</a></li>
+            <li><a href="ManageTodayCourses.aspx"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;GESTION AFFECTATION COURSES</a></li>
+            <li><a href="ArchiveCourses.aspx"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;ARCHIVES DES COURSES</a></li>
+            <li><a href="ArchivePeriodicCourses.aspx"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;ARCHIVES DES COURSES PERIODIQUES</a></li>
+            <li><a href="InitAffectation.aspx"><i class="fa fa-map-o" aria-hidden="true"></i>&nbsp;INITIALISER AFFECTATION</a></li>
+            <li><a href="TestAffectation.aspx"><i class="fa fa-map-o" aria-hidden="true"></i>&nbsp;TEST AFFECTATION</a></li>
+        </ul>
+    </li>
+    <li  class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-street-view" aria-hidden="true"></i>
+            &nbsp;
+            <b>ADMINISTRATION CLIENTS</b>
+            <i class="fa fa-angle-down"></i>
+        </a>
+        
+        <ul  class="dropdown-menu" role="menu">
+            <li>
+                <a href="AddClient.aspx">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    &nbsp;
+                    AJOUTER CLIENT
+                </a>
+            </li>
+            <li><a href="ManageClients.aspx"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;GESTION CLIENTS</a></li>
+        </ul>
+    </li>
+    <li  class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            &nbsp;
+            <b>ADMINISTRATION USERS</b>
+            <i class="fa fa-angle-down"></i>
+        </a>
+        
+        <ul  class="dropdown-menu" role="menu">
+            <li>
+                <a href="AddUser.aspx">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;
+                    AJOUTER USER
+
+                </a>
+
+            </li>
+            <li>
+                <a href="ManageUsers.aspx">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                    &nbsp;
+                    GESTION USERS
+                </a>
+
+            </li>
+        </ul>
+    </li>
+    <li  class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-taxi" aria-hidden="true"></i>
+            &nbsp;
+            <b>ADMINISTRATION TAXIS</b>
+            <i class="fa fa-angle-down"></i>
+        </a>
+        
+        <ul  class="dropdown-menu" role="menu">
+            <li><a href="AddTaxi.aspx"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;AJOUTER TAXI</a></li>
+            <li>
+                <a href="ManageTaxis.aspx">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                    &nbsp;
+                    GESTION TAXIS
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a style="margin-left: 0;padding-left: 0;" href="logout.aspx">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;<b>DECONNEXION</b>
+
+        </a>
+    </li>
+    
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ROOF_NAV" runat="server">
+    <li style="padding-left:0px;margin-left:0px;padding-right:0px;margin-right:0px;text-align:right;width:auto">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="padding-left:0px;margin-left:0px;padding-right:0px;margin-right:0px;text-align:right;width:auto" href="#">
+            <img style="width:4%"  src="images/Admin.png" /> 
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        </a>
+    </li>
+</asp:Content>
+
+
+<asp:Content ID="Content5" ContentPlaceHolderID="TOP_NAV" runat="server">
+    <li><a href="Default.aspx">ACCEUIL</a></li>
+    <li><a href="HomeAdmin.aspx">HOME ADMIN</a></li>
+    <li><a href="About.aspx">À PROPOS</a></li>
+    <li><a href="ZoneClient.aspx">ZONE-CLIENT</a></li>
+    <li><a href="Contact.aspx">CONTACT</a>
+</asp:Content>
+
+<asp:Content ID="Content7" ContentPlaceHolderID="BANNER" runat="server">
+        <div class="cp_inner-banner">
+            <asp:ContentPlaceHolder runat="server" ID="BANNER_IMG">
+                <img width="1800" height="492" src="images/banner/inner-banner-img-03.jpg" alt="">
+            </asp:ContentPlaceHolder>
+            <!--Inner Banner Holder Start-->
+            <div class="cp-inner-banner-holder">
+                <div class="container">
+                <h2>
+                    <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT_TITLE"></asp:ContentPlaceHolder>
+                </h2>
+                    <!--Breadcrumb Start-->
+                    <ul class="breadcrumb">
+                        <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT_CONTEXTE">
+                        </asp:ContentPlaceHolder>
+                    </ul><!--Breadcrumb End-->
+                </div>
+              
+            </div><!--Inner Banner Holder End-->
+            <div class="animate-bus">
+                <img src="images/animate-bus2.png" alt="">
+            </div>
+        </div>
+</asp:Content>
+
+<asp:Content ID="Content8" ContentPlaceHolderID="MAIN_CONTENT" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="PAGE_CONTENT"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content9" ContentPlaceHolderID="TOP_FOOTER" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="TOP_FOOTER"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content10" ContentPlaceHolderID="BOX_BOTTOM_FOOTER" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content12" ContentPlaceHolderID="AddScript" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="AddScript"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content13" ContentPlaceHolderID="ScriptInstruct" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="ScriptInstruct">
+
+    </asp:ContentPlaceHolder>
+    <script>
+        $(".top-listed").css("width", "75%");
+        $(".top-listed ul").css("width", "75%");
+    </script>
+</asp:Content>
